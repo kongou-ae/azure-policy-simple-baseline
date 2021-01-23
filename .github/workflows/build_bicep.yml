@@ -47,5 +47,3 @@ jobs:
           repository: kongou-ae/azure-policy-simple-baseline
           # Destination branch to push changes
           branch: main
-          # Directory to change to before pushing.
-          directory: src
