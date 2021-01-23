@@ -7,10 +7,10 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: src/baseline.bicep
+    paths: baseline.bicep
   pull_request:
     branches: [ main ]
-    paths: src/baseline.bicep
+    paths: baseline.bicep
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,7 +18,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  Publish-new-ArmTemplate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -34,9 +34,6 @@ jobs:
         with:
           # List of .bicep files to build, delimited by a space. eg) file1 file2 file3 ...
           files: src/baseline.bicep
-      
-      - name: move armtemplate
-        run: mv src/baseline.json ./baseline.json --force  
       
       - name: push arm file
         uses: ad-m/github-push-action@master
